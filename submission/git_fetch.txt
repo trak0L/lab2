@@ -1,0 +1,20 @@
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git branch
+  Cole_Branch
+  feature-branch-fetch
+* main
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git fetch origin feature-branch-fetch
+From https://github.com/CU-CSCI3308-Summer2025/lab-2-version-control-trak0L
+ * branch            feature-branch-fetch -> FETCH_HEAD
+ * [new branch]      feature-branch-fetch -> origin/feature-branch-fetch
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git branch
+  Cole_Branch
+  feature-branch-fetch
+* main
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git fetch --all

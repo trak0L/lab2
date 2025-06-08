@@ -1,0 +1,135 @@
+1. Yes but you might run into conflicts
+2. Git pauses and tell what files have a conflict and highlights them and won't let you revert until you resolve them.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ touch revert-activity.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 1"
+[main 9fa791b] revert change 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 revert-activity.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 2"
+[main c7a5446] revert change 2
+ 1 file changed, 1 insertion(+)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 2"
+[main 3bfd269] revert change 2
+ 1 file changed, 1 insertion(+)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 3"
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 4"
+[main 9072702] revert change 4
+ 1 file changed, 1 insertion(+)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 5"
+[main 3c54b4b] revert change 5
+ 1 file changed, 1 insertion(+)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "revert change 6"
+[main 04d37f5] revert change 6
+ 1 file changed, 1 insertion(+)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git log --oneline
+04d37f5 (HEAD -> main) revert change 6
+3c54b4b revert change 5
+9072702 revert change 4
+3bfd269 revert change 2
+c7a5446 revert change 2
+9fa791b revert change 1
+752127d (origin/main) git stash add
+6924162 (bugfix-branch-stash) remove final add
+5dfda45 round 2
+90c6d21 remove test
+0be2f2a git rm file test
+0a365bb git rebase file
+540f175 (feature-branch-rebase) file1.txt add
+4a82e52 Fresh add
+6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+a41a2d4 Added merge and pull files
+2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+81488f4 Version - main : <return value>
+25c1819 Version - <Person1> : <return value>
+bb9684a CPP commit
+6a4fe21 Initial commit
+8bd6af3 Initial commit
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git revert 3c54b4b
+Auto-merging revert-activity.txt
+CONFLICT (content): Merge conflict in revert-activity.txt
+error: could not revert 3c54b4b... revert change 5
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main|REVERTING)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main|REVERTING)
+$ git revert --continue
+[main 9870077] Revert "revert change 5"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git log --oneline
+9870077 (HEAD -> main) Revert "revert change 5"
+04d37f5 revert change 6
+3c54b4b revert change 5
+9072702 revert change 4
+3bfd269 revert change 2
+c7a5446 revert change 2
+9fa791b revert change 1
+752127d (origin/main) git stash add
+6924162 (bugfix-branch-stash) remove final add
+5dfda45 round 2
+90c6d21 remove test
+0be2f2a git rm file test
+0a365bb git rebase file
+540f175 (feature-branch-rebase) file1.txt add
+4a82e52 Fresh add
+6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+a41a2d4 Added merge and pull files
+2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+81488f4 Version - main : <return value>
+25c1819 Version - <Person1> : <return value>
+bb9684a CPP commit
+6a4fe21 Initial commit
+8bd6af3 Initial commit

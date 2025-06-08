@@ -1,0 +1,181 @@
+THERE ARE EXTRA STEPS IN HERE: was confused why it wasn't working so I was double checking things weren't messed up.
+
+1. The thing that changed before and after the rebase was that feature-branch-rebase didn't have the file1.txt because it was created on the main after the branch was created and then the rebase synced the two branches together and now has the file1.txt
+
+2. git rebase caught feature-branch-rebase up to the history of main without using commits.
+
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout -b feature-branch-rebase
+Switched to a new branch 'feature-branch-rebase'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ touch file1.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout feature-branch-rebase
+Switched to branch 'feature-branch-rebase'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git log --oneline --graph
+* 4a82e52 (HEAD -> feature-branch-rebase, origin/main, main) Fresh add
+* 6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+* a41a2d4 Added merge and pull files
+*   2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+|\
+| *   76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+| |\
+| |/
+|/|
+* | 81488f4 Version - main : <return value>
+| * 25c1819 Version - <Person1> : <return value>
+| * bb9684a CPP commit
+| * 6a4fe21 Initial commit
+|/
+* 8bd6af3 Initial commit
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git rebase main
+Current branch feature-branch-rebase is up to date.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git log --oneline --graph
+* 4a82e52 (HEAD -> feature-branch-rebase, origin/main, main) Fresh add
+* 6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+* a41a2d4 Added merge and pull files
+*   2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+|\
+| *   76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+| |\
+| |/
+|/|
+* | 81488f4 Version - main : <return value>
+| * 25c1819 Version - <Person1> : <return value>
+| * bb9684a CPP commit
+| * 6a4fe21 Initial commit
+|/
+* 8bd6af3 Initial commit
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "file1.txt add"
+[main 540f175] file1.txt add
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout feature-branch-rebase
+Switched to branch 'feature-branch-rebase'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git log --oneline --graph
+* 4a82e52 (HEAD -> feature-branch-rebase, origin/main) Fresh add
+* 6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+* a41a2d4 Added merge and pull files
+*   2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+|\
+| *   76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+| |\
+| |/
+|/|
+* | 81488f4 Version - main : <return value>
+| * 25c1819 Version - <Person1> : <return value>
+| * bb9684a CPP commit
+| * 6a4fe21 Initial commit
+|/
+* 8bd6af3 Initial commit
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git ls-tree feature-branch-rebase
+100644 blob fa20d944eae29115b8e7a6d6e04f1ecd35191531    README.md
+100644 blob 2d446804d539171644d21ac9dd7040fb6d829490    git_fetch.txt
+100644 blob 5e0a3e6b8a316f186e4c961fea209f3e912604bb    git_helper.sh
+100644 blob d296ff719beb694ae48324b2e2474fbcaa08da76    git_log.txt
+100644 blob db6b70499dbf8ef7a4825af99bdef2dd005b8368    git_merge_conflict.txt
+100644 blob 36354f45f332efa1ec8177d7e7a84e391ced99ba    git_pull_request.png
+100644 blob 54042fd88c5b7007cf7ce4579f33eff2e21dfdd7    main.cpp
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 269 bytes | 269.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/CU-CSCI3308-Summer2025/lab-2-version-control-trak0L.git
+   4a82e52..540f175  main -> main
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout feature-branch-rebase
+Switched to branch 'feature-branch-rebase'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git ls-tree feature-branch-rebase
+100644 blob fa20d944eae29115b8e7a6d6e04f1ecd35191531    README.md
+100644 blob 2d446804d539171644d21ac9dd7040fb6d829490    git_fetch.txt
+100644 blob 5e0a3e6b8a316f186e4c961fea209f3e912604bb    git_helper.sh
+100644 blob d296ff719beb694ae48324b2e2474fbcaa08da76    git_log.txt
+100644 blob db6b70499dbf8ef7a4825af99bdef2dd005b8368    git_merge_conflict.txt
+100644 blob 36354f45f332efa1ec8177d7e7a84e391ced99ba    git_pull_request.png
+100644 blob 54042fd88c5b7007cf7ce4579f33eff2e21dfdd7    main.cpp
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git log --oneline --graph
+* 4a82e52 (HEAD -> feature-branch-rebase) Fresh add
+* 6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+* a41a2d4 Added merge and pull files
+*   2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+|\
+| *   76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+| |\
+| |/
+|/|
+* | 81488f4 Version - main : <return value>
+| * 25c1819 Version - <Person1> : <return value>
+| * bb9684a CPP commit
+| * 6a4fe21 Initial commit
+|/
+* 8bd6af3 Initial commit
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git rebase main
+Successfully rebased and updated refs/heads/feature-branch-rebase.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (feature-branch-rebase)
+$ git log --oneline --graph
+* 540f175 (HEAD -> feature-branch-rebase, origin/main, main) file1.txt add
+* 4a82e52 Fresh add
+* 6a78af0 (origin/feature-branch-fetch, feature-branch-fetch) script commit
+* a41a2d4 Added merge and pull files
+*   2b60efd Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+|\
+| *   76b70b7 (origin/Cole_Branch, Cole_Branch) Merge branch 'main' into Cole_Branch
+| |\
+| |/
+|/|
+* | 81488f4 Version - main : <return value>
+| * 25c1819 Version - <Person1> : <return value>
+| * bb9684a CPP commit
+| * 6a4fe21 Initial commit
+|/
+* 8bd6af3 Initial commit

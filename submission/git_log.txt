@@ -1,0 +1,71 @@
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git log --graph
+* commit 6a78af049965b447c0c531a02cb5c292423339ba (HEAD -> main, origin/main)
+| Author: Cole Campbell <heelflip91@gmail.com>
+| Date:   Sat Jun 7 13:43:39 2025 -0600
+|
+|     script commit
+|
+* commit a41a2d48817ad4106d88b51b45f822935d6055ce
+| Author: Cole Campbell <heelflip91@gmail.com>
+| Date:   Fri Jun 6 16:12:50 2025 -0600
+|
+|     Added merge and pull files
+|
+*   commit 2b60efdd02a3d8afcd4db01308f255bb0ce31b3d
+|\  Merge: 81488f4 76b70b7
+| | Author: trak0L <heelflip91@gmail.com>
+| | Date:   Tue Jun 3 22:15:50 2025 -0600
+| |
+| |     Merge pull request #1 from CU-CSCI3308-Summer2025/Cole_Branch
+| |
+| |     Merging branch "Cole" with "main"
+| |
+| *   commit 76b70b73dfeeaf52fd3043ee3202dc663783fc9d (origin/Cole_Branch, Cole_Branch)
+| |\  Merge: 25c1819 81488f4
+| |/  Author: Cole Campbell <heelflip91@gmail.com>
+|/|   Date:   Tue Jun 3 21:50:00 2025 -0600
+| |
+| |       Merge branch 'main' into Cole_Branch
+| |
+* | commit 81488f4686b801ca3dbb66703c24370f3495d9c7
+| | Author: Cole Campbell <heelflip91@gmail.com>
+| | Date:   Tue Jun 3 21:28:02 2025 -0600
+| |
+| |     Version - main : <return value>
+| |
+| * commit 25c18198c9bf1e234299872aa5ee4609494ea100
+| | Author: Cole Campbell <heelflip91@gmail.com>
+| | Date:   Tue Jun 3 21:21:20 2025 -0600
+| |
+| |     Version - <Person1> : <return value>
+| |
+| * commit bb9684af4f634dd813db1aa1f240608b7fbebcf4
+| | Author: Cole Campbell <heelflip91@gmail.com>
+| | Date:   Tue Jun 3 19:30:12 2025 -0600
+| |
+| |     CPP commit
+| |
+| * commit 6a4fe215f37aaa69918792a8c5adc9f80b168e08
+|/  Author: Cole Campbell <heelflip91@gmail.com>
+|   Date:   Tue Jun 3 19:03:16 2025 -0600
+|
+|       Initial commit
+|
+* commit 8bd6af3433e8ec25331fd58ce3a80ee1f004c8cd
+  Author: Cole Campbell <heelflip91@gmail.com>
+  Date:   Tue Jun 3 18:26:42 2025 -0600
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git log main.cpp
+commit 6a78af049965b447c0c531a02cb5c292423339ba (HEAD -> main, origin/main)
+Author: Cole Campbell <heelflip91@gmail.com>
+Date:   Sat Jun 7 13:43:39 2025 -0600
+
+    script commit
+
+commit 81488f4686b801ca3dbb66703c24370f3495d9c7
+Author: Cole Campbell <heelflip91@gmail.com>
+Date:   Tue Jun 3 21:28:02 2025 -0600
+
+    Version - main : <return value>

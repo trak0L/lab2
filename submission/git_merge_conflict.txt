@@ -1,0 +1,46 @@
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout Cole_Branch
+Switched to branch 'Cole_Branch'
+Your branch is up to date with 'origin/Cole_Branch'.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch)
+$ git merge main
+Auto-merging main.cpp
+CONFLICT (add/add): Merge conflict in main.cpp
+Automatic merge failed; fix conflicts and then commit the result.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch|MERGING)
+$ git merge main
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch|MERGING)
+$ git add main.cpp
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch|MERGING)
+$ git commit
+[Cole_Branch 76b70b7] Merge branch 'main' into Cole_Branch
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch)
+$ git add main.cpp
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch)
+$ git commit -m "Merging changes with return value <selected value>"
+On branch Cole_Branch
+Your branch is ahead of 'origin/Cole_Branch' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (Cole_Branch)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 314 bytes | 314.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/CU-CSCI3308-Summer2025/lab-2-version-control-trak0L.git
+   25c1819..76b70b7  Cole_Branch -> Cole_Branch

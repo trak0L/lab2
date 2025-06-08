@@ -1,0 +1,44 @@
+1. Yes I was able to make the switch to the new branch
+
+2. git stash pop removes the changes from the stash and applys them to your working environment. git stash apply will reapply changes to your\ working copy and keep them in the stash. Used for applying stashed changes to multiple branches.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git checkout -b bugfix-branch-stash
+Switched to a new branch 'bugfix-branch-stash'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (bugfix-branch-stash)
+$ git stash
+Saved working directory and index state WIP on bugfix-branch-stash: 6924162 remove final add
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (bugfix-branch-stash)
+$ git stash list
+stash@{0}: WIP on bugfix-branch-stash: 6924162 remove final add
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (bugfix-branch-stash)
+$ git checkout -b bugfix-branch-stash
+fatal: a branch named 'bugfix-branch-stash' already exists
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (bugfix-branch-stash)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git stash pop
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git_stash.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (68b01f365c29b3f02defd849576395e5784bde0e)

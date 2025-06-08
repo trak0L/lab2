@@ -1,0 +1,54 @@
+1. no the file does not remain on my machine, but if I used the --cached command it would keep it
+
+2. use git rm when you want to remove it from the repository also I would think its good practice to keep file deletions on a record rather than deleting off the system
+
+3. One website says to use $ git reset --hard HEAD~1 if the file was deleted and then there was a commit. the HEAD~1 being the last commit that was done.
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ touch remove.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "round 2"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git_rm.txt
+        remove.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git add .
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git commit -m "round 2"
+[main 5dfda45] round 2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 git_rm.txt
+ create mode 100644 remove.txt
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ push
+bash: push: command not found
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 250 bytes | 250.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/CU-CSCI3308-Summer2025/lab-2-version-control-trak0L.git
+   90c6d21..5dfda45  main -> main
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git rm remove.txt
+rm 'remove.txt'
+
+Trakol@DESKTOP-5DA7AOU MINGW64 ~/Desktop/CSCI3308/Lab2 (main)
+$ git rm --cached remove.txt
+fatal: pathspec 'remove.txt' did not match any files
